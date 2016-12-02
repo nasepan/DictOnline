@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <ScrollPane layoutX="150.0" layoutY="446.0" prefHeight="140.0" prefWidth="500.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
+               </content>
+            </ScrollPane>
+            <TextField layoutX="444.0" layoutY="34.0" prefHeight="51.0" prefWidth="249.0" />
+            <Text layoutX="55.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入您想要搜索的单词:" wrappingWidth="372.12109375">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Text>
+            <ScrollPane layoutX="150.0" layoutY="102.0" prefHeight="140.0" prefWidth="500.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
+              </content>
+            </ScrollPane>
+            <ScrollPane layoutX="150.0" layoutY="275.0" prefHeight="140.0" prefWidth="500.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
