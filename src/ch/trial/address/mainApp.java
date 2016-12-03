@@ -2,7 +2,12 @@ package ch.trial.address;
 
 import java.io.IOException;
 
+import ch.trial.address.model.Thumbs;
+import ch.trial.address.view.mainPageController;
+
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -13,6 +18,36 @@ public class mainApp extends Application {
 
     private Stage primaryStage;
     private BorderPane rootLayout;
+    
+    /**
+     * observable list of thumbs
+     */
+    private ObservableList<Thumbs> thumbsData = FXCollections.observableArrayList();
+    
+    //Constructor    
+    public mainApp() {
+        // Add some sample data
+        thumbsData.add(new Thumbs("Hans", 0, 0, 0));
+        thumbsData.add(new Thumbs("Ruth", 0, 0, 0));
+        thumbsData.add(new Thumbs("Heinz", 0, 0, 0));
+        thumbsData.add(new Thumbs("Cornelia", 0, 0, 0));
+        thumbsData.add(new Thumbs("Werner", 0, 0, 0));
+        thumbsData.add(new Thumbs("Lydia", 0, 0, 0));
+        thumbsData.add(new Thumbs("Anna", 0, 0, 0));
+        thumbsData.add(new Thumbs("Stefan", 0, 0, 0));
+        thumbsData.add(new Thumbs("Martin", 0, 0, 0));
+    }
+
+    /**
+     * Returns the data as an observable list of Thumbss. 
+     * @return
+     */
+    public ObservableList<Thumbs> getThumbsData() {
+        return thumbsData;
+    }
+    
+    
+    
 
     @Override
     public void start(Stage primaryStage) {
@@ -44,17 +79,22 @@ public class mainApp extends Application {
     }
 
     /**
-     * Shows the person overview inside the root layout.
+     * Shows the Thumbs overview inside the root layout.
      */
     public void showUserLogin() {
         try {
-            // Load person overview.
+            // Load Thumbs overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(mainApp.class.getResource("view/userLogin.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
+            AnchorPane ThumbsOverview = (AnchorPane) loader.load();
 
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
+            // Set Thumbs overview into the center of root layout.
+            rootLayout.setCenter(ThumbsOverview);
+            
+            // Give the controller access to the main app
+            mainPageController controller = loader.getController();
+            controller.setMainApp(this);
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -62,13 +102,13 @@ public class mainApp extends Application {
     
     public void showMainPage(){
     	try {
-            // Load person overview.
+            // Load Thumbs overview.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(mainApp.class.getResource("view/mainPage.fxml"));
-            AnchorPane personOverview = (AnchorPane) loader.load();
+            AnchorPane ThumbsOverview = (AnchorPane) loader.load();
 
-            // Set person overview into the center of root layout.
-            rootLayout.setCenter(personOverview);
+            // Set Thumbs overview into the center of root layout.
+            rootLayout.setCenter(ThumbsOverview);
         } catch (IOException e) {
             e.printStackTrace();
         }

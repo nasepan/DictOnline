@@ -11,27 +11,42 @@
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
-            <ScrollPane layoutX="150.0" layoutY="446.0" prefHeight="140.0" prefWidth="500.0">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
-               </content>
-            </ScrollPane>
-            <TextField layoutX="444.0" layoutY="34.0" prefHeight="51.0" prefWidth="249.0" />
+            <TextField fx:id="inputText" layoutX="444.0" layoutY="34.0" prefHeight="51.0" prefWidth="249.0" />
             <Text layoutX="55.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="请输入您想要搜索的单词:" wrappingWidth="372.12109375">
                <font>
                   <Font size="32.0" />
                </font>
             </Text>
-            <ScrollPane layoutX="150.0" layoutY="102.0" prefHeight="140.0" prefWidth="500.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
-              </content>
-            </ScrollPane>
-            <ScrollPane layoutX="150.0" layoutY="275.0" prefHeight="140.0" prefWidth="500.0">
-               <content>
-                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
-               </content>
-            </ScrollPane>
+            <Pane layoutX="-12.0" layoutY="85.0" prefHeight="168.0" prefWidth="810.0">
+               <children>
+                  <ScrollPane layoutX="165.0" layoutY="14.0" prefHeight="140.0" prefWidth="500.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
+                    </content>
+                  </ScrollPane>
+                  <Button layoutX="665.0" layoutY="131.0" mnemonicParsing="false" text="点赞" />
+               </children>
+            </Pane>
+            <Pane layoutX="-13.0" layoutY="252.0" prefHeight="168.0" prefWidth="810.0">
+               <children>
+                  <ScrollPane layoutX="165.0" layoutY="14.0" prefHeight="140.0" prefWidth="500.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
+                     </content>
+                  </ScrollPane>
+                  <Button layoutX="665.0" layoutY="131.0" mnemonicParsing="false" text="点赞" />
+               </children>
+            </Pane>
+            <Pane layoutX="-13.0" layoutY="420.0" prefHeight="168.0" prefWidth="810.0">
+               <children>
+                  <ScrollPane layoutX="165.0" layoutY="14.0" prefHeight="140.0" prefWidth="500.0">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
+                     </content>
+                  </ScrollPane>
+                  <Button layoutX="665.0" layoutY="131.0" mnemonicParsing="false" text="点赞" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>

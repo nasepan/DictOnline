@@ -49,7 +49,7 @@ public class Thumbs {
 		return beingThumbs.get();
 	}
 
-	public void setBadiuThumbs(int num){
+	public void setBaiduThumbs(int num){
 		this.baiduThumbs = new SimpleIntegerProperty(num);
 	}
 
@@ -60,6 +60,16 @@ public class Thumbs {
 	public void setBeingThumbs(int num){
 		this.beingThumbs = new SimpleIntegerProperty(num);
 	}
-
-
+	
+	public void addBaiduThumbs(){
+		this.setBaiduThumbs(this.getBaiduThumbs() + 1);
+	}
+	
+	public void addYoudaoThumbs(){
+		this.setYoudaoThumbs(this.getYoudaoThumbs() + 1);
+	}
+	
+	public void addBeingThumbs(){
+		this.setBeingThumbs(this.getBeingThumbs() + 1);
+	}
 }
