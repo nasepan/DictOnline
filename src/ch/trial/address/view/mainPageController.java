@@ -1,14 +1,17 @@
 package ch.trial.address.view;
+import ch.trial.address.mainApp;
+import ch.trial.address.model.Thumbs;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 
-import ch.trial.address.mainApp;
-import ch.trial.address.model.Thumbs;
 
 public class mainPageController {
     @FXML
@@ -19,6 +22,12 @@ public class mainPageController {
     private Button secondThumbs;
     @FXML
     private Button thirdThumbs; 
+    @FXML
+    private Label numFirstThumbs;
+    @FXML
+    private Label numSecondThumbs;
+    @FXML
+    private Label numThirdThumbs;
 
     // Reference to the main application.
     private mainApp mainApp0;
@@ -36,42 +45,77 @@ public class mainPageController {
      */
     @FXML
     private void initialize() {
-        // Initialize the person table with the two columns.
-   }
+        // Initialize the person table with the text.
+    }
 
-    /**
+	/**
      * Is called by the main application to give a reference back to itself.
      * 
      * @param mainApp
      */
     public void setMainApp(mainApp mainApp0) {
-    	this.mainApp0 = mainApp0;
-    	
-    	firstThumbs.setOnMouseClicked((MouseEvent t1)-> {
-    		if(t1.getClickCount() == 1){
-    			ObservableList<Thumbs> thumbsData = mainApp0.getThumbsData();
-    			Thumbs thumbs = thumbsData.get(0);
-    			thumbs.addBaiduThumbs();
-    			thumbsData.set(0, thumbs);
+    	inputText.setAccessibleText(null);
+    	numFirstThumbs.setText(Integer.toString(0));
+    	numSecondThumbs.setText(Integer.toString(0));
+    	numThirdThumbs.setText(Integer.toString(0));
+    }
+     		   
+    
+    
+    private void showThumbsDetails(Thumbs thumbs){
+    	if(thumbs != null){
+    		//The part of word meaning
+    		//The part of thumbs
+    		numFirstThumbs.setText(Integer.toString(thumbs.getBaiduThumbs()));
+    		numSecondThumbs.setText(Integer.toString(thumbs.getYoudaoThumbs()));
+    		numThirdThumbs.setText(Integer.toString(thumbs.getBeingThumbs()));
+    	}
+    	else{
+    		//Thumbs is null, remove all the text
+    		numFirstThumbs.setText("");
+    		numSecondThumbs.setText("");
+    		numThirdThumbs.setText("");
+    	}
+    }
+    
+    private int stringSearch(String inputWord){
+    	int len = this.mainApp0.getThumbsData().size();
+    	for(int i = 0 ; i < len ; i++){
+    		if(this.mainApp0.getThumbsData().get(i).getWord().equals(inputWord)){
+    			return i;
     		}
-    	}) ;
+    	}
+    	return -1;
+    }
+    
+    @FXML
+    private void handleThumbsUp(){
+    	String inputWord = inputText.getText();
     	
-    	secondThumbs.setOnMouseClicked((MouseEvent t2)-> {
-    		if(t2.getClickCount() == 1){
-    			ObservableList<Thumbs> thumbsData = mainApp0.getThumbsData();
-    			Thumbs thumbs = thumbsData.get(1);
-    			thumbs.addYoudaoThumbs();
-    			thumbsData.set(1, thumbs);
-    		}
-    	}) ;
+    	int index = stringSearch(inputWord);
+    	if(index > -1){
+			Thumbs thumb = this.mainApp0.getThumbsData().get(index);
     	
-    	thirdThumbs.setOnMouseClicked((MouseEvent t3)-> {
-    		if(t3.getClickCount() == 1){
-    			ObservableList<Thumbs> thumbsData = mainApp0.getThumbsData();
-    			Thumbs thumbs = thumbsData.get(2);
-    			thumbs.addBeingThumbs();
-    			thumbsData.set(2, thumbs);
-    		}
-    	}) ;
+    		firstThumbs.setOnMouseClicked( (MouseEvent t) -> {
+    			if(t.getClickCount() == 1){    			
+    				thumb.addBaiduThumbs();
+    				numFirstThumbs.setText(Integer.toString(thumb.getBaiduThumbs() ));
+    			}
+    		});
+    	
+    		secondThumbs.setOnMouseClicked( (MouseEvent t) -> {
+    			if(t.getClickCount() == 1){   
+    				thumb.addYoudaoThumbs();
+    				numSecondThumbs.setText(Integer.toString(thumb.getYoudaoThumbs()));
+    			}
+    		});
+    	
+    		thirdThumbs.setOnMouseClicked( (MouseEvent t) -> {
+    			if(t.getClickCount() == 1){   
+    				thumb.addBeingThumbs();
+    				numThirdThumbs.setText(Integer.toString(thumb.getBeingThumbs()));
+    			}
+    		});
+    	}
     }
 }

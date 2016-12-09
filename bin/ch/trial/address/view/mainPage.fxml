@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.trial.address.view.mainPageController">
    <children>
       <Pane prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -24,7 +24,8 @@
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
                     </content>
                   </ScrollPane>
-                  <Button layoutX="665.0" layoutY="131.0" mnemonicParsing="false" text="点赞" />
+                  <Button fx:id="firstThumbs" layoutX="665.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleThumbsUp" text="点赞" />
+                  <Label fx:id="numFirstThumbs" layoutX="665.0" layoutY="116.0" text="Label" />
                </children>
             </Pane>
             <Pane layoutX="-13.0" layoutY="252.0" prefHeight="168.0" prefWidth="810.0">
@@ -34,7 +35,8 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
                      </content>
                   </ScrollPane>
-                  <Button layoutX="665.0" layoutY="131.0" mnemonicParsing="false" text="点赞" />
+                  <Button fx:id="secondThumbs" layoutX="665.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleThumbsUp" text="点赞" />
+                  <Label fx:id="numSecondThumbs" layoutX="665.0" layoutY="116.0" text="Label" />
                </children>
             </Pane>
             <Pane layoutX="-13.0" layoutY="420.0" prefHeight="168.0" prefWidth="810.0">
@@ -44,7 +46,8 @@
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="372.0" prefWidth="505.0" />
                      </content>
                   </ScrollPane>
-                  <Button layoutX="665.0" layoutY="131.0" mnemonicParsing="false" text="点赞" />
+                  <Button fx:id="thirdThumbs" layoutX="665.0" layoutY="131.0" mnemonicParsing="false" onAction="#handleThumbsUp" text="点赞" />
+                  <Label fx:id="numThirdThumbs" layoutX="665.0" layoutY="116.0" text="Label" />
                </children>
             </Pane>
          </children>

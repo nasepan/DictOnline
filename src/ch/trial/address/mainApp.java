@@ -39,13 +39,12 @@ public class mainApp extends Application {
     }
 
     /**
-     * Returns the data as an observable list of Thumbss. 
+     * Returns the data as an observable list of Thumbs. 
      * @return
      */
     public ObservableList<Thumbs> getThumbsData() {
         return thumbsData;
-    }
-    
+    }    
     
     
 
@@ -109,6 +108,12 @@ public class mainApp extends Application {
 
             // Set Thumbs overview into the center of root layout.
             rootLayout.setCenter(ThumbsOverview);
+            
+            //Give the controller access to the main application
+            mainPageController controller = loader.getController();
+            controller.setMainApp(this);
+            
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
